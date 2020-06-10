@@ -23,6 +23,7 @@ export default function App() {
         <Button title="ADD" onPress={addGoalHandler} />
       </View>
       <View>
+        {courseGoals.map((goal: string, id: number) => <Text key={id}>{goal}</Text>)}
       </View>
     </View>
   );
