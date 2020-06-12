@@ -1,13 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, GestureResponderEvent } from 'react-native';
 
-type AppProps = { title: string };
 
-const GoalItem = ({ title }: AppProps) => {
+type AppProps = {
+    title: string,
+    id: string,
+    onDelete: (goalId:string) => void;
+};
+
+const GoalItem = ({ title, id, onDelete }: AppProps) => {
     return (
-        <View style={styles.listItem}>
-            <Text>{title}</Text>
-        </View>
+        <TouchableOpacity activeOpacity={0.8} onPress={() => onDelete(id)}>
+            <View style={styles.listItem}>
+                <Text>{title}</Text>
+            </View>
+        </TouchableOpacity>
     );
 };
 
